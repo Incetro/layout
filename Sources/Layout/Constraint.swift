@@ -22,7 +22,6 @@ public struct ConstraintAngle {
     // MARK: - Initializers
 
     /// Default initializer
-    ///
     /// - Parameters:
     ///   - first: first part of angle
     ///   - second: second part of angle
@@ -34,13 +33,12 @@ public struct ConstraintAngle {
     // MARK: - Useful methods
 
     /// Connect current angle to other angle
-    ///
     /// - Parameters:
     ///   - other: target angle
-    ///   - offset: offset for constraints
-    public func connect(to other: ConstraintAngle, withOffset offset: CGFloat = 0) {
-        first.constraint(equalTo: other.first, constant: offset).isActive = true
-        second.constraint(equalTo: other.second, constant: offset).isActive = true
+    ///   - inset: inset for constraints
+    public func connect(to other: ConstraintAngle, withinsetInset inset: CGFloat = 0) {
+        first.constraint(equalTo: other.first, constant: inset).isActive = true
+        second.constraint(equalTo: other.second, constant: inset).isActive = true
     }
 }
 
@@ -56,7 +54,6 @@ public struct Constraint<T: AnyObject> {
     // MARK: - Initializers
 
     /// Default initializer
-    ///
     /// - Parameter constraint: wrapped constraint
     public init(constraint: NSLayoutAnchor<T>) {
         self.constraint = constraint
@@ -65,43 +62,39 @@ public struct Constraint<T: AnyObject> {
     // MARK: - Useful methods
 
     /// Connect current constraint to other constraint
-    ///
     /// - Parameters:
     ///   - other: target constraint
-    ///   - offset: constraint's offset
-    @discardableResult public func connect(to other: Constraint<T>, withOffset offset: CGFloat = 0) -> NSLayoutConstraint {
-        let constraint = self.constraint.constraint(equalTo: other.constraint, constant: offset)
+    ///   - inset: constraint's inset
+    @discardableResult public func connect(to other: Constraint<T>, withInset inset: CGFloat = 0) -> NSLayoutConstraint {
+        let constraint = self.constraint.constraint(equalTo: other.constraint, constant: inset)
         constraint.isActive = true
         return constraint
     }
 
     /// Connect current constraint to other constraint
-    ///
     /// - Parameters:
     ///   - other: target constraint
-    ///   - offset: constraint's offset
-    @discardableResult public func greater(than other: Constraint<T>, withOffset offset: CGFloat = 0) -> NSLayoutConstraint {
-        let constraint = self.constraint.constraint(greaterThanOrEqualTo: other.constraint, constant: offset)
+    ///   - inset: constraint's inset
+    @discardableResult public func greater(than other: Constraint<T>, withInset inset: CGFloat = 0) -> NSLayoutConstraint {
+        let constraint = self.constraint.constraint(greaterThanOrEqualTo: other.constraint, constant: inset)
         constraint.isActive = true
         return constraint
     }
 
     /// Connect current constraint to other constraint
-    ///
     /// - Parameters:
     ///   - other: target constraint
-    ///   - offset: constraint's offset
-    @discardableResult public func less(than other: Constraint<T>, withOffset offset: CGFloat = 0) -> NSLayoutConstraint {
-        let constraint = self.constraint.constraint(lessThanOrEqualTo: other.constraint, constant: offset)
+    ///   - inset: constraint's inset
+    @discardableResult public func less(than other: Constraint<T>, withInset inset: CGFloat = 0) -> NSLayoutConstraint {
+        let constraint = self.constraint.constraint(lessThanOrEqualTo: other.constraint, constant: inset)
         constraint.isActive = true
         return constraint
     }
 
     /// Connect current constraint to other constraint using MetaConstraint
-    ///
     /// - Parameter constraint: MetaConstraint instance
     public func connect(to constraint: MetaConstraint<T>) {
-        connect(to: constraint.constraint, withOffset: constraint.constant)
+        connect(to: constraint.constraint, withInset: constraint.constant)
     }
 }
 
@@ -118,24 +111,22 @@ public struct MetaConstraint<T: AnyObject> {
     public let constant: CGFloat
 }
 
-/// Common `+` operator for making constraints with offsets
-///
+/// Common `+` operator for making constraints with insets
 /// - Parameters:
-///   - lhs: constraint which should contain the given offset
-///   - offset: offset for the given constraint
+///   - lhs: constraint which should contain the given inset
+///   - inset: inset for the given constraint
 /// - Returns: MetaConstraint instance
-public func + <T>(lhs: Constraint<T>, offset: CGFloat) -> MetaConstraint<T> {
-    MetaConstraint(constraint: lhs, constant: offset)
+public func + <T>(lhs: Constraint<T>, inset: CGFloat) -> MetaConstraint<T> {
+    MetaConstraint(constraint: lhs, constant: inset)
 }
 
-/// Common `-` operator for making constraints with offsets
-///
+/// Common `-` operator for making constraints with insets
 /// - Parameters:
-///   - lhs: constraint which should contain the given offset
-///   - offset: offset for the given constraint
+///   - lhs: constraint which should contain the given inset
+///   - inset: inset for the given constraint
 /// - Returns: MetaConstraint instance
-public func - <T>(lhs: Constraint<T>, offset: CGFloat) -> MetaConstraint<T> {
-    MetaConstraint(constraint: lhs, constant: -offset)
+public func - <T>(lhs: Constraint<T>, inset: CGFloat) -> MetaConstraint<T> {
+    MetaConstraint(constraint: lhs, constant: -inset)
 }
 
 // MARK: - DimensionConstraint
@@ -150,7 +141,6 @@ public struct DimensionConstraint {
     // MARK: - Initializers
 
     /// Default initializer
-    ///
     /// - Parameter constraint: wrapped constraint
     public init(constraint: NSLayoutDimension) {
         self.constraint = constraint
@@ -159,7 +149,6 @@ public struct DimensionConstraint {
     // MARK: - Useful methods
 
     /// Set current constraint equal to other constraint
-    ///
     /// - Parameters:
     ///   - other: target constraint
     ///   - multiplier: constraint's multiplier
@@ -170,7 +159,6 @@ public struct DimensionConstraint {
     }
 
     /// Set current constraint less than or equal to other constraint
-    ///
     /// - Parameters:
     ///   - other: target constraint
     ///   - multiplier: constraint's multiplier
@@ -181,7 +169,6 @@ public struct DimensionConstraint {
     }
 
     /// Set current constraint less than or equal to some constant
-    ///
     /// - Parameters:
     ///   - other: target constraint
     ///   - multiplier: constraint's multiplier
@@ -192,7 +179,6 @@ public struct DimensionConstraint {
     }
 
     /// Set current constraint greater than or equal to other constraint
-    ///
     /// - Parameters:
     ///   - other: target constraint
     ///   - multiplier: constraint's multiplier
@@ -203,7 +189,6 @@ public struct DimensionConstraint {
     }
 
     /// Set current constraint greater than or equal to some constant
-    ///
     /// - Parameters:
     ///   - constant: some constant
     @discardableResult public func greaterThanOrEqual(to constant: CGFloat) -> NSLayoutConstraint {
@@ -213,7 +198,6 @@ public struct DimensionConstraint {
     }
 
     /// Set current constraint equal to some constant
-    ///
     /// - Parameter constant: constraint's constant
     @discardableResult public func equal(to constant: CGFloat) -> NSLayoutConstraint {
         let constraint = self.constraint.constraint(equalToConstant: constant)

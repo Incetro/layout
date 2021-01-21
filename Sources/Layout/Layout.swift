@@ -76,7 +76,6 @@ public extension UIView {
     // MARK: - Useful methods
 
     /// Prepare view for auto layout
-    ///
     /// - Returns: Current view
     @discardableResult func prepareForAutolayout() -> Self {
         translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +83,6 @@ public extension UIView {
     }
 
     /// Set view size through width and height
-    ///
     /// - Parameters:
     ///   - width: View width
     ///   - height: View height
@@ -96,7 +94,6 @@ public extension UIView {
     }
 
     /// Set view size through width and height
-    ///
     /// - Parameters:
     ///   - width: View width
     ///   - height: View height
@@ -108,7 +105,6 @@ public extension UIView {
     }
 
     /// Set view size through CGSize value
-    ///
     /// - Parameters:
     ///   - size: CGSize value
     /// - Returns: Current view
@@ -119,7 +115,6 @@ public extension UIView {
     }
 
     /// Set view size as size of another view
-    ///
     /// - Parameters:
     ///   - view: View for emulating
     ///   - multiplier: Constraints multiplier
@@ -131,7 +126,6 @@ public extension UIView {
     }
 
     /// Set view width
-    ///
     /// - Parameter const: width value
     /// - Returns: Current view
     @discardableResult func width(_ const: CGFloat) -> Self {
@@ -140,7 +134,6 @@ public extension UIView {
     }
 
     /// Set view height
-    ///
     /// - Parameter const: height value
     /// - Returns: Current view
     @discardableResult func height(_ const: CGFloat) -> Self {
@@ -149,7 +142,6 @@ public extension UIView {
     }
 
     /// Set view width through another constraint
-    ///
     /// - Parameters:
     ///   - other: constraint for emulating
     ///   - multiplier: constraint's multiplier
@@ -160,7 +152,6 @@ public extension UIView {
     }
 
     /// Set view height through another constraint
-    ///
     /// - Parameters:
     ///   - other: constraint for emulating
     ///   - multiplier: constraint's multiplier
@@ -171,7 +162,6 @@ public extension UIView {
     }
 
     /// Connect current bottom to other bottom
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func bottom(to other: Constraint<NSLayoutYAxisAnchor>) -> Self {
@@ -180,7 +170,6 @@ public extension UIView {
     }
 
     /// Connect current top to other top
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func top(to other: Constraint<NSLayoutYAxisAnchor>) -> Self {
@@ -189,7 +178,6 @@ public extension UIView {
     }
 
     /// Connect current left to other left
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func left(to other: Constraint<NSLayoutXAxisAnchor>) -> Self {
@@ -198,7 +186,6 @@ public extension UIView {
     }
 
     /// Connect current right to other right
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func right(to other: Constraint<NSLayoutXAxisAnchor>) -> Self {
@@ -207,7 +194,6 @@ public extension UIView {
     }
 
     /// Connect current bottom to other bottom
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func bottom(to other: MetaConstraint<NSLayoutYAxisAnchor>) -> Self {
@@ -216,7 +202,6 @@ public extension UIView {
     }
 
     /// Connect current top to other top
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func top(to other: MetaConstraint<NSLayoutYAxisAnchor>) -> Self {
@@ -225,7 +210,6 @@ public extension UIView {
     }
 
     /// Connect current left to other left
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func left(to other: MetaConstraint<NSLayoutXAxisAnchor>) -> Self {
@@ -234,7 +218,6 @@ public extension UIView {
     }
 
     /// Connect current right to other right
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func right(to other: MetaConstraint<NSLayoutXAxisAnchor>) -> Self {
@@ -243,7 +226,6 @@ public extension UIView {
     }
 
     /// Connect current centerX to other centerX
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func centerX(to other: Constraint<NSLayoutXAxisAnchor>) -> Self {
@@ -252,7 +234,6 @@ public extension UIView {
     }
 
     /// Connect current centerY to other centerY
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func centerY(to other: Constraint<NSLayoutYAxisAnchor>) -> Self {
@@ -261,7 +242,6 @@ public extension UIView {
     }
 
     /// Connect current centerX to other centerX
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func centerX(to other: MetaConstraint<NSLayoutXAxisAnchor>) -> Self {
@@ -270,7 +250,6 @@ public extension UIView {
     }
 
     /// Connect current centerY to other centerY
-    ///
     /// - Parameter other: constraint for connection
     /// - Returns: Current view
     @discardableResult func centerY(to other: MetaConstraint<NSLayoutYAxisAnchor>) -> Self {
@@ -279,7 +258,6 @@ public extension UIView {
     }
 
     /// Connect current center to other center
-    ///
     /// - Parameter view: View with target center
     /// - Returns: Current view
     @discardableResult func center(in view: UIView) -> Self {
@@ -289,7 +267,6 @@ public extension UIView {
     }
 
     /// Pin current view to other view with edges instets
-    ///
     /// - Parameters:
     ///   - view: View for connection
     ///   - left: left inset
@@ -297,64 +274,65 @@ public extension UIView {
     ///   - top: top inset
     ///   - bottom: bottom inset
     /// - Returns: Current view
-    @discardableResult func pinEdges(to view: UIView, left: CGFloat = 0, right: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) -> Self {
-        self.left.connect(to: view.left, withOffset: left)
-        self.right.connect(to: view.right, withOffset: -right)
-        self.top.connect(to: view.top, withOffset: top)
-        self.bottom.connect(to: view.bottom, withOffset: -bottom)
+    @discardableResult func pinEdges(
+        to view: UIView,
+        left: CGFloat = 0,
+        right: CGFloat = 0,
+        top: CGFloat = 0,
+        bottom: CGFloat = 0
+    ) -> Self {
+        self.left.connect(to: view.left, withInset: left)
+        self.right.connect(to: view.right, withInset: -right)
+        self.top.connect(to: view.top, withInset: top)
+        self.bottom.connect(to: view.bottom, withInset: -bottom)
         return self
     }
 
     /// Pin current view's edges view to subview's edges
-    ///
     /// - Parameters:
     ///   - left: left inset
     ///   - right: right inset
     ///   - top: top inset
     ///   - bottom: bottom inset
     /// - Returns: Current view
-    @discardableResult func pinEdgesToSuperview(left: CGFloat = 0, right: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) -> Self {
-
+    @discardableResult func pinEdgesToSuperview(
+        left: CGFloat = 0,
+        right: CGFloat = 0,
+        top: CGFloat = 0,
+        bottom: CGFloat = 0
+    ) -> Self {
         guard let superview = superview else {
             fatalError("Cennot obtain superview for layouting")
         }
-
         pinEdges(to: superview, left: left, right: right, top: top, bottom: bottom)
-
         return self
     }
 
-    /// Pin current view to other view with some offset (to left, right, top and bottom)
-    ///
+    /// Pin current view to other view with some insets (to left, right, top and bottom)
     /// - Parameters:
     ///   - view: Target view
-    ///   - offset: [left, right, top, bottom]'s offset
+    ///   - inset: [left, right, top, bottom]'s inset
     /// - Returns: Current view
-    @discardableResult func pin(to view: UIView, withOffset offset: CGFloat = 0) -> Self {
-        left.connect(to: view.left, withOffset: offset)
-        right.connect(to: view.right, withOffset: -offset)
-        top.connect(to: view.top, withOffset: offset)
-        bottom.connect(to: view.bottom, withOffset: -offset)
+    @discardableResult func pin(to view: UIView, withInset inset: CGFloat = 0) -> Self {
+        left.connect(to: view.left, withInset: inset)
+        right.connect(to: view.right, withInset: -inset)
+        top.connect(to: view.top, withInset: inset)
+        bottom.connect(to: view.bottom, withInset: -inset)
         return self
     }
 
-    /// Pin current view to superview with some offset (to left, right, top and bottom)
-    ///
-    /// - Parameter offset: [left, right, top, bottom]'s offset
+    /// Pin current view to superview with some insets (to left, right, top and bottom)
+    /// - Parameter inset: [left, right, top, bottom]'s inset
     /// - Returns: Current view
-    @discardableResult func pinToSuperview(withOffset offset: CGFloat = 0) -> Self {
-
+    @discardableResult func pinToSuperview(withInset inset: CGFloat = 0) -> Self {
         guard let superview = superview else {
             fatalError("Cannot obtain superview for layouting")
         }
-
-        pin(to: superview, withOffset: offset)
-
+        pin(to: superview, withInset: inset)
         return self
     }
 
     /// View's sides
-    ///
     /// - top: top side
     /// - left: left side
     /// - right: right side
@@ -366,101 +344,105 @@ public extension UIView {
         case bottom
     }
 
-    /// Pin current view to other view excluding some side and using offset
-    ///
+    /// Pin current view to other view excluding some side and using inset
     /// - Parameters:
     ///   - view: Target view
     ///   - side: Side which should be excluded
-    ///   - offset: [left, right, top, bottom]'s offset
+    ///   - inset: [left, right, top, bottom]'s inset
     /// - Returns: Current view
-    @discardableResult func pin(to view: UIView, excludingSide side: PinnedSide, usingOffset offset: CGFloat = 0) -> Self {
+    @discardableResult func pin(
+        to view: UIView,
+        excludingSide side: PinnedSide,
+        usingInset inset: CGFloat = 0
+    ) -> Self {
         switch side {
         case .top:
-            pin(to: view, withSides: .left, .right, .bottom, andOffset: offset)
+            pin(to: view, withSides: .left, .right, .bottom, andInset: inset)
         case .left:
-            pin(to: view, withSides: .top, .right, .bottom, andOffset: offset)
+            pin(to: view, withSides: .top, .right, .bottom, andInset: inset)
         case .right:
-            pin(to: view, withSides: .top, .left, .bottom, andOffset: offset)
+            pin(to: view, withSides: .top, .left, .bottom, andInset: inset)
         case .bottom:
-            pin(to: view, withSides: .top, .left, .right, andOffset: offset)
+            pin(to: view, withSides: .top, .left, .right, andInset: inset)
         }
         return self
     }
 
-    /// Pin current view to superview excluding some side and using offset
-    ///
+    /// Pin current view to superview excluding some side and using inset
     /// - Parameters:
     ///   - side: Side which should be excluded
-    ///   - offset: [left, right, top, bottom]'s offset
+    ///   - inset: [left, right, top, bottom]'s inset
     /// - Returns: Current view
-    @discardableResult func pinToSuperview(excluding side: PinnedSide, usingOffset offset: CGFloat = 0) -> Self {
-
+    @discardableResult func pinToSuperview(excluding side: PinnedSide, usingInset inset: CGFloat = 0) -> Self {
         guard let superview = superview else {
             fatalError("There is no superview or sides")
         }
-
-        return pin(to: superview, excludingSide: side, usingOffset: offset)
+        return pin(to: superview, excludingSide: side, usingInset: inset)
     }
 
-    /// Pin current view to superview using some sides and offset
-    ///
+    /// Pin current view to superview using some sides and inset
     /// - Parameters:
     ///   - sides: Sides which should be pinned
-    ///   - offset: Sides' offset
+    ///   - inset: Sides inset
     /// - Returns: Current view
-    @discardableResult func pinToSuperview(withSides sides: PinnedSide..., andOffset offset: CGFloat = 0) -> Self {
-
+    @discardableResult func pinToSuperview(withSides sides: PinnedSide..., andInset inset: CGFloat = 0) -> Self {
         guard let superview = superview, !sides.isEmpty else {
             fatalError("There is no superview or sides")
         }
-
         sides.forEach { side in
             switch side {
             case .top:
-                top.connect(to: superview.top, withOffset: offset)
+                top.connect(to: superview.top, withInset: inset)
             case .right:
-                right.connect(to: superview.right, withOffset: -offset)
+                right.connect(to: superview.right, withInset: -inset)
             case .left:
-                left.connect(to: superview.left, withOffset: offset)
+                left.connect(to: superview.left, withInset: inset)
             case .bottom:
-                bottom.connect(to: superview.bottom, withOffset: -offset)
+                bottom.connect(to: superview.bottom, withInset: -inset)
             }
         }
-
         return self
     }
 
-    /// Pin current view to other view using some sides and offset
-    ///
+    /// Pin current view to other view using some sides and inset
     /// - Parameters:
     ///   - view: Target view
     ///   - sides: Sides which should be pinned
-    ///   - offset: Sides' offset
+    ///   - inset: Sides inset
     /// - Returns: Current view
-    @discardableResult func pin(to view: UIView, withSides sides: PinnedSide..., andOffset offset: CGFloat = 0) -> Self {
+    @discardableResult func pin(to view: UIView, withSides sides: PinnedSide..., andInset inset: CGFloat = 0) -> Self {
         sides.forEach { side in
             switch side {
             case .top:
-                top.connect(to: view.top, withOffset: offset)
+                top.connect(to: view.top, withInset: inset)
             case .right:
-                right.connect(to: view.right, withOffset: -offset)
+                right.connect(to: view.right, withInset: -inset)
             case .left:
-                left.connect(to: view.left, withOffset: offset)
+                left.connect(to: view.left, withInset: inset)
             case .bottom:
-                bottom.connect(to: view.bottom, withOffset: -offset)
+                bottom.connect(to: view.bottom, withInset: -inset)
             }
         }
         return self
     }
 
+    /// Full pin view to other view using all sides with insets
+    /// - Parameters:
+    ///   - view: Target view
+    ///   - insets: Sides insets
+    /// - Returns: Current view
     @discardableResult func fullPin(to view: UIView, withInsets insets: UIEdgeInsets) -> Self {
-        top.connect(to: view.top, withOffset: insets.top)
-        left.connect(to: view.left, withOffset: insets.left)
-        right.connect(to: view.right, withOffset: -insets.right)
-        bottom.connect(to: view.bottom, withOffset: -insets.bottom)
+        top.connect(to: view.top, withInset: insets.top)
+        left.connect(to: view.left, withInset: insets.left)
+        right.connect(to: view.right, withInset: -insets.right)
+        bottom.connect(to: view.bottom, withInset: -insets.bottom)
         return self
     }
 
+    /// Full pin view to superview using all sides with insets
+    /// - Parameters:
+    ///   - insets: Sides insets
+    /// - Returns: Current view
     @discardableResult func fullPinToSuperview(withInsets insets: UIEdgeInsets) -> Self {
         guard let superview = superview else {
             fatalError("There is no superview or sides")
@@ -468,22 +450,31 @@ public extension UIView {
         return fullPin(to: superview, withInsets: insets)
     }
 
+    /// Pin view to other view using only those sides where the indent is not zero
+    /// - Parameters:
+    ///   - view: Target view
+    ///   - insets: Sides insets
+    /// - Returns: Current view
     @discardableResult func safePin(to view: UIView, withInsets insets: UIEdgeInsets) -> Self {
         if insets.top != 0 {
-            top.connect(to: view.top, withOffset: insets.top)
+            top.connect(to: view.top, withInset: insets.top)
         }
         if insets.left != 0 {
-            left.connect(to: view.left, withOffset: insets.left)
+            left.connect(to: view.left, withInset: insets.left)
         }
         if insets.right != 0 {
-            right.connect(to: view.right, withOffset: -insets.right)
+            right.connect(to: view.right, withInset: -insets.right)
         }
         if insets.bottom != 0 {
-            bottom.connect(to: view.bottom, withOffset: -insets.bottom)
+            bottom.connect(to: view.bottom, withInset: -insets.bottom)
         }
         return self
     }
 
+    /// Pin view to superview using only those sides where the indent is not zero
+    /// - Parameters:
+    ///   - insets: Sides insets
+    /// - Returns: Current view
     @discardableResult func safePinToSuperview(withInsets insets: UIEdgeInsets) -> Self {
         guard let superview = superview else {
             fatalError("There is no superview or sides")
@@ -497,19 +488,11 @@ public extension UIView {
 public extension UIViewController {
 
     var safeTopAnchor: NSLayoutYAxisAnchor {
-        if #available(iOS 11.0, *) {
-            return view.safeAreaLayoutGuide.topAnchor
-        } else {
-            return topLayoutGuide.bottomAnchor
-        }
+        view.safeAreaLayoutGuide.topAnchor
     }
 
     var safeBottomAnchor: NSLayoutYAxisAnchor {
-        if #available(iOS 11.0, *) {
-            return view.safeAreaLayoutGuide.bottomAnchor
-        } else {
-            return bottomLayoutGuide.topAnchor
-        }
+        view.safeAreaLayoutGuide.bottomAnchor
     }
 
     var safeTop: Constraint<NSLayoutYAxisAnchor> {

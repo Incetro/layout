@@ -19,7 +19,7 @@ public extension Array where Element: UIView {
     func verticalStack(
         in view: UIView,
         spacing: CGFloat = 0,
-        pinToEdgesWithSpacong: Bool = true
+        pinToEdgesWithSpacing: Bool = true
     ) {
 
         forEach {
@@ -29,15 +29,15 @@ public extension Array where Element: UIView {
             $0.right.connect(to: view.right)
         }
 
-        first?.top.connect(to: view.top, withOffset: pinToEdgesWithSpacong ? spacing : 0)
-        last?.bottom.connect(to: view.bottom, withOffset: pinToEdgesWithSpacong ? -spacing : 0)
+        first?.top.connect(to: view.top, withInset: pinToEdgesWithSpacing ? spacing : 0)
+        last?.bottom.connect(to: view.bottom, withInset: pinToEdgesWithSpacing ? -spacing : 0)
 
         guard count > 1 else {
             return
         }
 
         for index in 0..<count - 1 {
-            self[index].bottom.connect(to: self[index + 1].top, withOffset: -spacing)
+            self[index].bottom.connect(to: self[index + 1].top, withInset: -spacing)
             self[index].height.equal(to: self[index + 1].height)
         }
     }
@@ -60,15 +60,15 @@ public extension Array where Element: UIView {
             $0.bottom.connect(to: view.bottom)
         }
 
-        first?.left.connect(to: view.left, withOffset: spacing)
-        last?.right.connect(to: view.right, withOffset: -spacing)
+        first?.left.connect(to: view.left, withInset: spacing)
+        last?.right.connect(to: view.right, withInset: -spacing)
 
         guard count > 1 else {
             return
         }
 
         for index in 0..<count - 1 {
-            self[index].right.connect(to: self[index + 1].left, withOffset: -spacing)
+            self[index].right.connect(to: self[index + 1].left, withInset: -spacing)
             if isFillEqually {
                 self[index].width.equal(to: self[index + 1].width)
             }
