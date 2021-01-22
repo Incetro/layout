@@ -36,7 +36,7 @@ public struct ConstraintAngle {
     /// - Parameters:
     ///   - other: target angle
     ///   - inset: inset for constraints
-    public func connect(to other: ConstraintAngle, withinsetInset inset: CGFloat = 0) {
+    public func connect(to other: ConstraintAngle, withInset inset: CGFloat = 0) {
         first.constraint(equalTo: other.first, constant: inset).isActive = true
         second.constraint(equalTo: other.second, constant: inset).isActive = true
     }
