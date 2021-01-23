@@ -1,6 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name          = 'swift-layout'
-  spec.version       = '0.0.1'
+  spec.module_name   = 'Layout'
+  spec.version       = '0.0.2'
   spec.license       = 'MIT'
   spec.authors       = { 'incetro' => 'incetro@ya.ru', 'Alexander Lezya' => 'Lezya007@gmail.com' }
   spec.homepage      = "https://github.com/Incetro/layout"
