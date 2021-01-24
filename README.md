@@ -27,7 +27,6 @@
 *Layout* is simple layout design wrapper, that will make it easier for you to work with it.
 
 
-- [Example](https://github.com/Incetro/haptic-feedback/tree/main/HapticFeedbackExample) 
 - [Usage](#Usage)
 	1. [Layout](#layout)
 	2. [Constraint](#constraint)
@@ -36,10 +35,6 @@
 - [Communication](#communication)
 - [Installation](#installation)
 - [Authors](#license)
-
-## Example project <a name="Example project"></a>
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Usage <a name="Usage"></a>
 
