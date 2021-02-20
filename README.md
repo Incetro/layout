@@ -40,9 +40,8 @@
 
 To use a *Layout*, all you will need to import 'Layout' module into your swift file:
 
-```
+```swift
 import Layout
-
 ```
 
 ### 1. Layout <a name="layout"></a>
@@ -50,7 +49,7 @@ import Layout
 *Layout* have many properties will help you more easily access the desired constraints.
 For example like this:
 
-```
+```swift
 /// Your view
 let view = UIView()
 
@@ -66,12 +65,11 @@ view.topLeftAngle
 view.topRightAngle
 view.bottomLeftAngle
 view.bottomRightAngle
-
 ```
 
 Layout has many useful methods for sizing, attaching one view to another, they are used like this:
 
-```
+```swift
 /// Your views
 let firstView = UIView()
 let secondView = UIView()
@@ -79,8 +77,8 @@ let thirdView = UIView()
 
 /// Pin current view to superview with some insets
 firstView
-	.prepareForAutolayout()
-	.pinToSuperview()
+    .prepareForAutolayout()
+    .pinToSuperview()
 
 /// Setup size and connect left anchor to other view
 firstView.addSubview(secondView.prepareForAutolayout())
@@ -89,13 +87,13 @@ secondView
         width: firstView.frame.width / 2,
         height: firstView.frame.height / 2
     )
-	.top(to: firstView.top)
-	.left(to: firstView.left)
+    .top(to: firstView.top)
+    .left(to: firstView.left)
 	
 /// Pin edges to other view with insets
 secondView.addSubview(thirdView.prepareForAutolayout())
 thirdView
-	.pinEdges(to: secondView, left: 5, right: 5, top: 0, bottom: 0)
+    .pinEdges(to: secondView, left: 5, right: 5, top: 0, bottom: 0)
     
 /// Pin view to other view using only those sides
 secondView.addSubview(thirdView.prepareForAutolayout())
@@ -113,18 +111,18 @@ thirdView
 
 *Layout* contains some methods for working with constraints, they are used like this:
 
-```
+```swift
 /// Set current constraint equal to other constraint
 firstView
-	.height.equal(to: secondView.height)
+    .height.equal(to: secondView.height)
 
 /// Set current constraint less than or equal to other constraint
 firstView
-	.height.lessThanOrEqual(to: secondView.height, multiplier: 2)
+    .height.lessThanOrEqual(to: secondView.height, multiplier: 2)
 
 /// Set current constraint greater than or equal to other constraint
 firstView
-	.height.greaterThanOrEqual(to: secondView.height, multiplier: 2)
+    .height.greaterThanOrEqual(to: secondView.height, multiplier: 2)
 
 ```
 
@@ -134,7 +132,7 @@ firstView
 
 These properties will help you more easily access to ancors of safe area layout guide.
 
-```
+```swift
 // MARK: - UIViewController
 
 public extension UIViewController {
@@ -159,14 +157,13 @@ public extension UIViewController {
 
 `Array` extension make your some views array as stack view. There are two methods, for vertical and horizontal stacking. It's easy to use them:
 
-```
+```swift
 /// Your views array and needed view
 viewsArray.verticalStack(in: yourView, spacing: 20, pinToEdgesWithSpacing: false)
 
 /// Or horizontal
 viewsArray.horizontalStack(in: yourView)
 ```
-
 
 ## Requirements
 - iOS 11.0+
